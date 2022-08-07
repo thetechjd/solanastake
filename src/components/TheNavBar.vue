@@ -21,7 +21,7 @@ export default defineComponent({
       { name: 'Team', url: '/' },
       { name: 'FAQ', url: '/' },
       //{ name: 'FARM MANAGER', url: '/manager' },
-      { name: 'Stake', url: '/farmer' },
+      { name: 'Stake', url: '/stake' },
     ];
 
     return {
