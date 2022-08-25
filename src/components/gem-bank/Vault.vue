@@ -1,14 +1,10 @@
 <template>
   <!--control buttons-->
   <div class="mb-10 flex justify-center">
-    <button
-      v-if="
-        (toWalletNFTs && toWalletNFTs.length) ||
-        (toVaultNFTs && toVaultNFTs.length)
-      "
-      class="nes-btn is-primary mr-5"
-      @click="moveNFTsOnChain"
-    >
+    <button v-if="
+      (toWalletNFTs && toWalletNFTs.length) ||
+      (toVaultNFTs && toVaultNFTs.length)
+    " class="nes-btn is-primary mr-5" @click="moveNFTsOnChain">
       Move Gems!
     </button>
     <slot />
@@ -17,40 +13,18 @@
   <!--wallet + vault view-->
   <div class="flex items-stretch">
     <!--left-->
-    <NFTGrid
-      title="Your wallet"
-      class="flex-1"
-      :nfts="desiredWalletNFTs"
-      @selected="handleWalletSelected"
-    />
+    <NFTGrid title="Your wallet" class="flex-1" :nfts="desiredWalletNFTs" @selected="handleWalletSelected" />
 
     <!--mid-->
     <div class="m-2 flex flex-col">
-      <ArrowButton
-        :disabled="vaultLocked"
-        class="my-2"
-        @click="moveNFTsFE(false)"
-      />
-      <ArrowButton
-        :disabled="vaultLocked"
-        class="my-2"
-        :left="true"
-        @click="moveNFTsFE(true)"
-      />
+      <ArrowButton :disabled="vaultLocked" class="my-2" @click="moveNFTsFE(false)" />
+      <ArrowButton :disabled="vaultLocked" class="my-2" :left="true" @click="moveNFTsFE(true)" />
     </div>
 
     <!--right-->
-    <NFTGrid
-      v-if="bank && vault"
-      title="Your vault"
-      class="flex-1"
-      :nfts="desiredVaultNFTs"
-      @selected="handleVaultSelected"
-    >
-      <div
-        v-if="vaultLocked"
-        class="locked flex-col justify-center items-center align-center"
-      >
+    <NFTGrid v-if="bank && vault" title="Your vault" class="flex-1" :nfts="desiredVaultNFTs"
+      @selected="handleVaultSelected">
+      <div v-if="vaultLocked" class="locked flex-col justify-center items-center align-center">
         <p class="mt-10">This vault is locked!</p>
       </div>
     </NFTGrid>

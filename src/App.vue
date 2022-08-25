@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-black h-full min-h-screen">
+  <div class="relative bg-purple-400 h-full min-h-screen">
     <TheNavBar />
     <div class="pt-10 px-10 flex justify-center align-middle">
       <p class="mt-10 text-4xl pt-3 px-1 mt-1 text-white">STAKE YOUR NFT</p>

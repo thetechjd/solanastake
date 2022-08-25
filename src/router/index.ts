@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Farmer from '@/views/Farmer.vue';
+import Stake from '@/views/Farmer.vue';
 import Manager from '@/views/Manager.vue';
 import Home from '@/views/Home.vue';
 
@@ -15,9 +15,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Manager,
   },
   {
-    path: '/farmer',
-    name: 'Farmer',
-    component: Farmer,
+    path: '/stake',
+    name: 'Stake',
+    component: Stake,
   },
 ];
 

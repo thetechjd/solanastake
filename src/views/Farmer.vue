@@ -1,57 +1,52 @@
 <template>
   <ConfigPane />
-  <div v-if="!wallet" class="text-center text-white">Connect Wallet
-
-  </div>
+  <div v-if="!wallet" class="text-center">Connect wallet</div>
   <div v-else>
     <!--farm address-->
     <div class="nes-container with-title mb-10">
       <p class="title">Connect to a Farm</p>
       <div class="nes-field mb-5">
         <label for="farm">Farm address:</label>
-        <input id="farm" class="nes-input" v-model="farm" />
+        <select id="farm" class="nes-input" v-model="farm">
+          <option id="farm">6kyPj8qiy2asFbr4W1hrDBG9JutE9tC5UYcFsFAq44yt</option>
+        </select>
       </div>
+    </div>
 
+    <div v-if="farmerAcc">
+      <FarmerDisplay :key="farmerAcc" :farm="farm" :farmAcc="farmAcc" :farmer="farmer" :farmerAcc="farmerAcc"
+        class="mb-10" @refresh-farmer="handleRefreshFarmer" />
+      <Vault :key="farmerAcc" class="mb-10" :vault="farmerAcc.vault.toBase58()"
+        @selected-wallet-nft="handleNewSelectedNFT">
+        <button v-if="farmerState === 'staked' && selectedNFTs.length > 0" class="nes-btn is-primary mr-5"
+          @click="addGems">
+          Add Gems (resets staking)
+        </button>
+        <button v-if="farmerState === 'unstaked'" class="nes-btn is-success mr-5" @click="beginStaking">
+          Begin staking
+        </button>
+        <button v-if="farmerState === 'staked'" class="nes-btn is-error mr-5" @click="endStaking">
+          End staking
+        </button>
+        <button v-if="farmerState === 'pendingCooldown'" class="nes-btn is-error mr-5" @click="endStaking">
+          End cooldown
+        </button>
+        <button class="nes-btn is-warning" @click="claim">
+          Claim {{ availableA / 1000000000 }} A / {{ availableB }} B
+        </button>
+      </Vault>
+    </div>
+    <div v-else>
+      <div class="w-full text-center mb-5">
+        Farmer account not found :( Create a new one?
+      </div>
+      <div class="w-full text-center">
+        <button class="nes-btn is-primary" @click="initFarmer">
+          New Farmer
+        </button>
+      </div>
     </div>
   </div>
-
-  <div v-if="farmerAcc">
-
-    <FarmerDisplay :key="farmerAcc" :farm="farm" :farmAcc="farmAcc" :farmer="farmer" :farmerAcc="farmerAcc"
-      class="mb-10" @refresh-farmer="handleRefreshFarmer" />
-    <Vault :key="farmerAcc" class="mb-10" :vault="farmerAcc.vault.toBase58()"
-      @selected-wallet-nft="handleNewSelectedNFT">
-      <button v-if="farmerState === 'staked' && selectedNFTs.length > 0" class="nes-btn is-primary mr-5"
-        @click="addGems">
-        Add NFTs (resets staking)
-      </button>
-      <button v-if="farmerState === 'unstaked'" class="nes-btn is-success mr-5" @click="beginStaking">
-        Begin staking
-      </button>
-      <button v-if="farmerState === 'staked'" class="nes-btn is-error mr-5" @click="endStaking">
-        End staking
-      </button>
-      <button v-if="farmerState === 'pendingCooldown'" class="nes-btn is-error mr-5" @click="endStaking">
-        End cooldown
-      </button>
-      <button class="nes-btn is-warning" @click="claim">
-        Claim {{ availableA }} A / {{ availableB }} B
-      </button>
-    </Vault>
-  </div>
-
-
-  <div v-else>
-    <div class="w-full text-center mb-5">
-      Farmer account not found :( Create a new one?
-    </div>
-    <div class="w-full text-center">
-      <button class="nes-btn is-primary" @click="initFarmer">
-        New Farmer
-      </button>
-    </div>
-  </div>
-
 </template>
 
 <script lang="ts">
@@ -65,7 +60,6 @@ import FarmerDisplay from '@/components/gem-farm/FarmerDisplay.vue';
 import Vault from '@/components/gem-bank/Vault.vue';
 import { INFT } from '@/common/web3/NFTget';
 import { findFarmerPDA, stringifyPKsAndBNs } from '@gemworks/gem-farm-ts';
-
 
 export default defineComponent({
   components: { Vault, FarmerDisplay, ConfigPane },
@@ -91,7 +85,7 @@ export default defineComponent({
     const farmerAcc = ref<any>();
     const farmerState = ref<string>();
 
-    const availableA = ref<string>();
+    const availableA = ref<any>();
     const availableB = ref<string>();
 
     //auto loading for when farm changes

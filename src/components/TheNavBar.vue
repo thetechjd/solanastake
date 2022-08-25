@@ -20,7 +20,7 @@ export default defineComponent({
       { name: 'Mint', url: '/' },
       { name: 'Team', url: '/' },
       { name: 'FAQ', url: '/' },
-      //{ name: 'FARM MANAGER', url: '/manager' },
+      { name: 'FARM MANAGER', url: '/manager' },
       { name: 'Stake', url: '/stake' },
     ];
 
