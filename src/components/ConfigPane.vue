@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex items-center justify-center">
     <div
-      class="w-1/2 flex flex-col bg-black justify-center items-center border-white border-b-4 border-t-4 border-l-4 border-r-4">
+      class="w-3/4 md:w-1/2 flex flex-col bg-black justify-center items-center border-white border-b-4 border-t-4 border-l-4 border-r-4">
       <div class="w-4/5 mb-10 pt-10 px-10 bg-black border-b-4 border-white flex justify-center align-middle">
         <p class="mt-10 whitespace-nowrap text-4xl md:text-6xl pt-3 pb-2 px-1 mt-1 uppercase text-white">Stake
           Portal
