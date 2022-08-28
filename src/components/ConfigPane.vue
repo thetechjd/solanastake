@@ -14,12 +14,12 @@
 
       <div class=" w-3/4 flex flex-col justify-center py-4 items-center mb-10">
         <div class="w-full flex flex-row justify-between mb-5">
-          <div class="w-1/2 flex flex-col text-left text-xl px-8 py-4 border-r">
+          <div class="w-1/2 flex flex-col text-left text-xl px-2 md:px-8 py-4 border-r">
             <p class='pb-3 text-lg text-2xl text-white'>Total Staked:</p>
             <p class="text-white text-2xl">0/<span class="text-gray-400">2382</span></p>
           </div>
 
-          <div class="w-1/2 flex flex-col text-right text-xl px-8 py-4">
+          <div class="w-1/2 flex flex-col text-right text-xl px-2 md:px-8 py-4">
             <p class="pb-3 text-white text-2xl">Value staked:</p>
             <p class="text-2xl text-white"> $0</p>
           </div>
