@@ -4,7 +4,7 @@
     <img class='' src="../assets/twitter.svg" />
     <img class='' src="../assets/discord.svg" />
     <img class='' src="../assets/magiceden.svg" />
-    <router-link to="stake">
+    <router-link to="/">
       <button class="bg-white text-3xl text-black p-4">Connect Wallet</button>
     </router-link>
 
