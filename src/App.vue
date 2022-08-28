@@ -32,7 +32,7 @@ export default {
 
 <style>
 * {
-  font-family: 'Bebas';
+  font-family: 'Bebas Neue', cursive;
 }
 
 input[type='radio']:checked+span {
