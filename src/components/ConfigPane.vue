@@ -25,7 +25,8 @@
           </div>
 
         </div>
-        <button class="rainbow w-full px-10 py-6 text-5xl" v-on:click="isHidden = !isHidden">Connect Wallet
+        <button class="rainbow w-full p-3 md:px-10 md:py-6 text-2xl md:text-5xl"
+          v-on:click="isHidden = !isHidden">Connect Wallet
         </button>
         <div v-if="!isHidden" class="justify-center items-center nes-select is-dark">
           <select required id="wallet" v-model="chosenWallet">
