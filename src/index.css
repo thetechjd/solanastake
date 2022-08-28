@@ -4,6 +4,43 @@
 @tailwind utilities;
 
 
+@font-face {
+    font-family: "Bebas";
+    src: url("../public/bebas.woff2");
+   
+  }
+
+
+.bg-pattern {
+    background-color: #000000;
+    background-image: url('./assets/doodle.png');
+    background-attachment: fixed;
+    background-position-x: initial;
+   background-position-y: initial;
+   //background-repeat-x: initial;
+    //background-repeat-y: initial;
+    //background-attachment: initial;
+    //background-origin: initial;
+    //background-clip: initial;
+    
+   
+}
+
+.rainbow {
+    background: linear-gradient( 87.22deg, #ff00c7 5.62%, #00ffd1 50.96%, #fff500 98.22% );
+    background-image: linear-gradient(87.22deg, rgb(255, 0, 199) 5.62%, rgb(0, 255, 209) 50.96%, rgb(255, 245, 0) 98.22%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+}
+
+/*
 .slider {
     height: 300px;
     position: relative;
@@ -93,3 +130,4 @@ img:hover {
     right: 0;
     top: 0
 }
+*/
