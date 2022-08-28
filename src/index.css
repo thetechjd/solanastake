@@ -4,11 +4,7 @@
 @tailwind utilities;
 
 
-@font-face {
-    font-family: "Bebas";
-    src: url("../public/bebas.woff2");
-   
-  }
+
 
 
 .bg-pattern {
